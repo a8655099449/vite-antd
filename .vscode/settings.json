@@ -104,7 +104,11 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[less]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "stylelint.vscode-stylelint",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.fixAll.stylelint": true
+    }
   },
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

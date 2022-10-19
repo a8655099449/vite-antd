@@ -28,11 +28,11 @@
             margin: '10px ',
             padding: '10px',
             background: '#fff',
-            height: 'calc(100vh - 20px)',
-            'overflow-y': 'scroll',
+            'max-height': 'calc(100vh - 20px)',
+            'overflow-y': 'auto',
           }"
         >
-          <slot></slot>
+          <RouterView />
         </LayoutContent>
       </Layout>
     </Layout>
@@ -40,12 +40,7 @@
 </template>
 <script setup lang="ts">
   import { ref } from 'vue';
-  import {
-    Layout,
-    LayoutSider,
-    LayoutContent,
-    // LayoutHeader,
-  } from 'ant-design-vue';
+  import { Layout, LayoutSider, LayoutContent } from 'ant-design-vue';
 
   const selectedKeys = ref(['0']);
   const collapsed = ref<boolean>(true);

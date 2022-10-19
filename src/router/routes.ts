@@ -1,19 +1,21 @@
 import type { RouteRecordRaw } from 'vue-router';
+import layoutRoutes from '@/router/layoutRoutes';
 
-type RouteItem = RouteRecordRaw & {
+export type RouteItem = RouteRecordRaw & {
   isMenu?: boolean; // 是否是菜单栏
 };
 
 const routes: Readonly<RouteItem[]> = [
   {
     path: '/',
-    redirect: '/home',
+    component: import('../components/layout/Layout.vue'),
+    children: layoutRoutes as any,
   },
   {
-    path: '/home',
-    name: '首页',
-    component: import('../views/home/index.vue'),
+    path: '/login',
+    component: import('../views/login/index'),
   },
+
   // 404页面
   {
     path: '/:pathMatch(.*)*',

@@ -9,7 +9,7 @@
   <div class="index">
     {{ name }}
 
-    <AButton>antd</AButton>
+    <!-- <AButton v-for="item in 1000" :key="item">{{ item }}</AButton> -->
   </div>
 </template>
 
