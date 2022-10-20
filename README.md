@@ -61,6 +61,7 @@ yarn build
 
 ```
 - components // 公用组件文件存放
+- assets // 公共资源存放
 - plugins // 插件文件
 - router // 路由相关
 - store // 数据状态管理

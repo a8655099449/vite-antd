@@ -1,6 +1,8 @@
 import { defineComponent, reactive, ref } from 'vue';
-import { Button, Form, FormItem, Input, message } from 'ant-design-vue';
+import { useRouter } from 'vue-router';
+import { Button, Form, FormItem, Input } from 'ant-design-vue';
 import './login.less';
+import { useUserStore } from '@/store/user';
 
 const login = defineComponent({
   setup() {
@@ -18,13 +20,16 @@ const login = defineComponent({
 
     const { validate } = Form.useForm(modelRef);
 
+    const { login: modelLogin } = useUserStore();
+
+    const { replace } = useRouter();
+
     const login = async () => {
       await validate();
-      const { acc, pwd } = modelRef;
-      if (acc === 'admin' && pwd === '123456') {
-        message.success('登录成功');
-      } else {
-        message.error('账号密码错误');
+      const res = modelLogin(modelRef);
+
+      if (res) {
+        replace(`/home`);
       }
     };
     const handleChange = (key: string, value: any) => {
@@ -55,7 +60,7 @@ const login = defineComponent({
               />
             </FormItem>
             <FormItem>
-              <Input
+              <Input.Password
                 placeholder={`输入密码 123456`}
                 onChange={(e) => handleChange('pwd', e.target.value)}
                 value={modelRef.pwd}

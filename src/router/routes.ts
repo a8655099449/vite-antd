@@ -3,12 +3,13 @@ import layoutRoutes from '@/router/layoutRoutes';
 
 export type RouteItem = RouteRecordRaw & {
   isMenu?: boolean; // 是否是菜单栏
+  icon?: string;
 };
 
 const routes: Readonly<RouteItem[]> = [
   {
     path: '/',
-    component: import('../components/layout/Layout.vue'),
+    component: import('../components/Layout/Layout.vue'),
     children: layoutRoutes as any,
   },
   {

@@ -1,3 +1,39 @@
+@import 'https://at.alicdn.com/t/c/font_3604441_oi1zdp00abs.css?spm=a313x.7781069.1998910419.54&file=font_3604441_oi1zdp00abs.css';
+
 * {
   margin: 0;
+}
+
+.ant-menu-item.ant-menu-item {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .iconfont {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+  }
+}
+
+.iconfont {
+  font-size: 14px;
+}
+
+.ant-layout-sider-collapsed {
+  .ant-menu-item {
+    .name {
+      display: none;
+    }
+
+    .iconfont {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
 }
